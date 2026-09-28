@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunny Uday Kiran Janipalli | Lead Technical Product Manager & Systems Architect</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f293d;
+      --primary: #38bdf8;
+      --secondary: #6366f1;
+      --accent: #10b981;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --glow: rgba(56, 189, 248, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    /* CONTAINER & LAYOUT */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .tab-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 3rem 1rem;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--secondary);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 2rem auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--card-bg);
+      border-color: var(--primary);
+    }
+
+    /* GRID & CARDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px var(--glow);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .card-meta {
+      font-size: 0.825rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.925rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      color: var(--muted);
+    }
+
+    /* ARCHITECTURE WORKFLOW VISUALS */
+    .workflow-container {
+      background: #0d121f;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .workflow-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .workflow-steps {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .workflow-node {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.85rem;
+      min-width: 170px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .workflow-node.active-node {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+    }
+
+    .workflow-node strong {
+      display: block;
+      font-size: 0.85rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .workflow-node span {
+      font-size: 0.725rem;
+      color: var(--muted);
+      line-height: 1.2;
+      display: block;
+    }
+
+    .arrow {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      margin-top: 2rem;
+      border-left: 2px solid var(--card-border);
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.95rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .timeline-role {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .timeline-company {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .timeline ul {
+      list-style-type: square;
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .timeline li {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline li strong {
+      color: var(--text);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--card-border);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      max-width: 650px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="brand">SUNNY UDAY KIRAN JANIPALLI</div>
+    <ul class="nav-links">
+      <li><a class="nav-btn active" onclick="switchTab('about')">Overview</a></li>
+      <li><a class="nav-btn" onclick="switchTab('artifacts')">Artifacts & Architecture</a></li>
+      <li><a class="nav-btn" onclick="switchTab('experience')">Experience</a></li>
+      <li><a class="nav-btn" onclick="switchTab('domains')">Domain Matrix</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- ==================== TAB 1: ABOUT / OVERVIEW ==================== -->
+    <section id="about" class="tab-section active">
+      <div class="hero">
+        <div class="hero-badge">Lead Technical Product Manager & Agile Delivery Lead</div>
+        <h1>Enterprise Cloud Catalogs, DBOR Transformation & Agentic AI</h1>
+        <p>
+          16+ years orchestrating large-scale commercial offer lifecycles, Azure DevOps 10-day payload release pipelines, and multi-agent AI automation workflows for global cloud ecosystems.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" onclick="switchTab('artifacts')">Inspect System Artifacts ➔</a>
+          <a class="btn btn-secondary" href="mailto:sunny.udaykiran@gmail.com">Contact Directly</a>
+          <a class="btn btn-secondary" href="https://linkedin.com/in/sunny-uday-kiran" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-meta">CORE FOCUS</span>
+          <h3>Offer & DBOR Governance</h3>
+          <p>
+            Expert in master catalog topologies (Microsoft Cayman), GA/EOS lifecycle dates, tenant allocations, and single-source-of-record integrity.
+          </p>
+          <div class="tag-container">
+            <span class="tag">Office 365</span>
+            <span class="tag">Dynamics CRM</span>
+            <span class="tag">ERP / NAV</span>
+            <span class="tag">Intune</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-meta">PIPELINE GOVERNANCE</span>
+          <h3>10-Day Payload Engine</h3>
+          <p>
+            Governed rigorous deployment package validation, Azure DevOps service change gates, and zero-rollback release frameworks.
+          </p>
+          <div class="tag-container">
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Scrum / PSM I</span>
+            <span class="tag">PSPO I</span>
+            <span class="tag">CI/CD Gates</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-meta">ON-DEMAND TECH</span>
+          <h3>AI Agents & Automation</h3>
+          <p>
+            Hands-on builder of autonomous multi-agent pipelines using LangGraph and LangChain for business rules parsing and operational automation.
+          </p>
+          <div class="tag-container">
+            <span class="tag">LangGraph</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">Python</span>
+            <span class="tag">Copilot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: ARTIFACTS & ARCHITECTURES ==================== -->
+    <section id="artifacts" class="tab-section">
+      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Technical Artifacts & Architecture Workflows</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">
+        Concrete architectural proofs demonstrating mastery in enterprise release cycles, autonomous agent workflows, and global data pipelines.
+      </p>
+
+      <!-- ARCHITECTURE WORKFLOW 1 -->
+      <div class="workflow-container">
+        <div class="workflow-title">
+          <span>Workflow 1: Enterprise DBOR / Master Catalog 10-Day Release Pipeline</span>
+          <span class="tag" style="background: rgba(56, 189, 248, 0.2); color: var(--primary);">Cayman & Azure DevOps</span>
+        </div>
+        <div class="workflow-steps">
+          <div class="workflow-node">
+            <strong>1. Catalog Intake</strong>
+            <span>SKU definition, pricing tiers, and GA/EOS dates</span>
+          </div>
+          <div class="arrow">➔</div>
+          <div class="workflow-node">
+            <strong>2. Schema Validation</strong>
+            <span>Tenant dependencies & service plan cross-checks</span>
+          </div>
+          <div class="arrow">➔</div>
+          <div class="workflow-node active-node">
+            <strong>3. Azure DevOps Gate</strong>
+            <span>Deployment Package QA & Service Change Approval</span>
+          </div>
+          <div class="arrow">➔</div>
+          <div class="workflow-node">
+            <strong>4. Payload Release</strong>
+            <span>Global tenant sync (O365, CRM, NAV, Intune)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARCHITECTURE WORKFLOW 2 -->
+      <div class="workflow-container">
+        <div class="workflow-title">
+          <span>Workflow 2: Stateful Multi-Agent AI Requirement & Verification Loop</span>
+          <span class="tag" style="background: rgba(16, 185, 129, 0.2); color: var(--accent);">LangGraph & LangChain</span>
+        </div>
+        <div class="workflow-steps">
+          <div class="workflow-node">
+            <strong>User Epic / Raw Spec</strong>
+            <span>Unstructured operational input or CR ticket</span>
+          </div>
+          <div class="arrow">➔</div>
+          <div class="workflow-node">
+            <strong>Parser Agent</strong>
+            <span>Extracts business rules & data dependencies</span>
+          </div>
+          <div class="arrow">➔</div>
+          <div class="workflow-node active-node">
+            <strong>Validation Loop</strong>
+            <span>Agent checks schema limits & consistency</span>
+          </div>
+          <div class="arrow">➔</div>
+          <div class="workflow-node">
+            <strong>Acceptance Output</strong>
+            <span>Generates executable test criteria in ADO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTIFACT CARDS -->
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-meta">PROVEN ARTIFACT #1</span>
+          <h3>Enterprise Catalog & Payload State Machine</h3>
+          <p>
+            Blueprint architecture and schema validator for managing complex multi-tenant commercial catalogs, pricing models, and 10-day deployment cycles.
+          </p>
+          <button class="btn btn-secondary" onclick="openModal('artifact1')">View Architecture Spec</button>
+        </div>
+
+        <div class="card">
+          <span class="card-meta">PROVEN ARTIFACT #2</span>
+          <h3>LangGraph Multi-Agent Workflows</h3>
+          <p>
+            Modular AI agent pipelines coordinating ticket refinement, automated acceptance criteria generation, and operational verification checks.
+          </p>
+          <button class="btn btn-secondary" onclick="openModal('artifact2')">View Architecture Spec</button>
+        </div>
+
+        <div class="card">
+          <span class="card-meta">PROVEN ARTIFACT #3</span>
+          <h3>MarTech Data Sync & CDO Harmonizer</h3>
+          <p>
+            End-to-end relational data model mapping Oracle Eloqua Custom Data Objects (CDO) to Salesforce CRM pipelines across 5 global regions.
+          </p>
+          <button class="btn btn-secondary" onclick="openModal('artifact3')">View Architecture Spec</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: EXPERIENCE ==================== -->
+    <section id="experience" class="tab-section">
+      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Leadership & Experience</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">
+        Proven trajectory spanning Technical Product Management, Enterprise Scrum Master, and Global Operations.
+      </p>
+
+      <div class="timeline">
+        <!-- ROLE 1 -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Technical Product Manager – Microsoft Commercial Offer Management</span><br/>
+              <span class="timeline-company">Wipro</span>
+            </div>
+            <div class="timeline-date">Nov 2022 – Present</div>
+          </div>
+          <ul>
+            <li><strong>Commercial Catalog Infrastructure:</strong> Governed end-to-end catalog lifecycles using Microsoft Cayman across Office 365, Dynamics CRM, ERP, NAV, and Windows Intune.</li>
+            <li><strong>10-Day Payload Cadence:</strong> Orchestrated deployment packages, service change requests, and release gates in Azure DevOps with a 99.8% on-time execution rate.</li>
+            <li><strong>Product Horizon Operations:</strong> Led GA rollouts, EOS transitions, and pricing group configurations across enterprise market endpoints.</li>
+            <li><strong>AI-Driven Enablement:</strong> Integrated Microsoft Copilot to automate catalog validation and streamline KT workflows across global teams.</li>
+          </ul>
+        </div>
+
+        <!-- ROLE 2 -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Scrum Master – Agile Systems Delivery</span><br/>
+              <span class="timeline-company">Tata Consultancy Services (TCS)</span>
+            </div>
+            <div class="timeline-date">Nov 2018 – Oct 2022</div>
+          </div>
+          <ul>
+            <li><strong>Agile Scaling:</strong> Facilitated Sprint Planning, Reviews, and Retrospectives; elevated sprint velocity by 25% across distributed pods.</li>
+            <li><strong>Dependency Resolution:</strong> Established Scrum-of-Scrums forums, mitigating systemic release blockers and external scope churn.</li>
+          </ul>
+        </div>
+
+        <!-- ROLE 3 -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Project Lead – Global Campaign Management & MarTech</span><br/>
+              <span class="timeline-company">TCS (Client: Alcatel-Lucent Enterprise)</span>
+            </div>
+            <div class="timeline-date">Aug 2017 – Nov 2018</div>
+          </div>
+          <ul>
+            <li><strong>Multi-Region Operations:</strong> Managed digital campaigns and webinars across APAC, EMEA, France, Netherlands, and WW.</li>
+            <li><strong>Data Architecture:</strong> Designed Oracle Eloqua Custom Data Objects (CDO) linked with Salesforce Cloud Connectors for real-time lead routing.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: DOMAIN MATRIX ==================== -->
+    <section id="domains" class="tab-section">
+      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Professional Domain Matrix</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">
+        Bridging the gap between engineering complexity and operational business value.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="card-meta">DOMAIN 01</span>
+          <h3>DBOR & Master Data Architecture</h3>
+          <p>
+            Mapping complex data sources, business rules, field-level lineage, and downstream dependencies to guarantee a single source of truth across mission-critical systems.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="card-meta">DOMAIN 02</span>
+          <h3>Target Operating Models (TOM)</h3>
+          <p>
+            Transforming ad-hoc release practices into predictable 10-day payload operating cadences with standard operational controls, risk assessments, and change advisory gates.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="card-meta">DOMAIN 03</span>
+          <h3>Autonomous Agent Workflows</h3>
+          <p>
+            Engineering stateful LangGraph agents with memory loops, tool-calling capabilities, and schema validation routines to eliminate manual operational friction.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="card-meta">DOMAIN 04</span>
+          <h3>Product-Led Agile Governance</h3>
+          <p>
+            PSM I and PSPO I certified practitioner aligning engineering backlogs, user story definitions, and business acceptance testing with strategic organizational KPIs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- MODAL FOR ARTIFACTS -->
+  <div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Sunny Uday Kiran Janipalli. All architectural blueprints and project schemas verified.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+
+      const activeBtn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const artifactDetails = {
+      artifact1: {
+        title: "Enterprise Catalog & Payload State Machine",
+        badge: "DBOR / Cayman Architecture",
+        desc: "Designed to model complex cloud catalog lifecycles. It formalizes state machine transitions for SKUs from Pre-GA, GA (General Availability), through EOS (End of Service). Includes validation routines for pricing groups, service plans, and Azure DevOps release packages.",
+        impact: "Reduces catalog configuration anomalies by 30% and enforces zero-rollback gates during 10-day deployment payloads."
+      },
+      artifact2: {
+        title: "LangGraph Multi-Agent Workflows",
+        badge: "Generative AI & Agentic Ops",
+        desc: "A multi-agent system utilizing LangGraph memory loops. The Intake Agent parses unstructured business requirements, the Validator Agent inspects technical constraints and dependencies, and the Publisher Agent writes structured ADO user stories and acceptance criteria.",
+        impact: "Automates backlog grooming operations, saving hours of manual requirement translation between business and engineering."
+      },
+      artifact3: {
+        title: "MarTech Data Sync & CDO Harmonizer",
+        badge: "Data Lineage & Integration",
+        desc: "Relational data schema bridging Oracle Eloqua Custom Data Objects (CDOs) and Salesforce CRM. Features automated web lookup hooks, multi-region lead scoring, and GDPR-compliant consent capture pipelines across 5 global regions.",
+        impact: "Ensured 99.9% data delivery integrity and accelerated regional lead delivery by 20% across APAC and EMEA."
+      }
+    };
+
+    function openModal(id) {
+      const data = artifactDetails[id];
+      if (!data) return;
+      document.getElementById('modalContent').innerHTML = `
+        <span class="tag" style="background: rgba(56, 189, 248, 0.2); color: var(--primary); margin-bottom: 0.5rem; display: inline-block;">${data.badge}</span>
+        <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.75rem;">${data.title}</h3>
+        <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;">${data.desc}</p>
+        <div style="background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--accent); padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: #fff;">
+          <strong>Strategic Business Impact:</strong> ${data.impact}
+        </div>
+      `;
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
