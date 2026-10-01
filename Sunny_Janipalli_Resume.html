@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunny Uday Kiran Janipalli - Executive Resume</title>
+  <style>
+    :root {
+      --primary: #0f2d59;
+      --secondary: #1a56db;
+      --dark: #0f172a;
+      --muted: #475569;
+      --light-bg: #f8fafc;
+      --border: #e2e8f0;
+      --accent: #0284c7;
+      --tag-bg: #e0f2fe;
+      --tag-color: #0369a1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--dark);
+      background-color: #e2e8f0;
+      line-height: 1.45;
+      padding: 24px;
+      font-size: 12.5px;
+    }
+
+    .action-bar {
+      max-width: 900px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-download {
+      background: var(--secondary);
+      color: #ffffff;
+      border: none;
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s ease;
+    }
+
+    .btn-download:hover {
+      background: #1e40af;
+    }
+
+    .page {
+      background: #ffffff;
+      max-width: 900px;
+      margin: 0 auto 24px auto;
+      padding: 38px 46px;
+      border-radius: 4px;
+      box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 6px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    .contact-bar a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      margin-top: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 3px;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-align: justify;
+      font-size: 12px;
+    }
+
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 14px;
+      margin-bottom: 10px;
+    }
+
+    .pill-item {
+      background: var(--light-bg);
+      border-left: 3px solid var(--secondary);
+      padding: 5px 9px;
+      border-radius: 0 4px 4px 0;
+      font-size: 11.5px;
+    }
+
+    .pill-item strong {
+      color: var(--dark);
+      display: block;
+      font-size: 11.5px;
+      margin-bottom: 2px;
+    }
+
+    .exp-card {
+      margin-bottom: 12px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .exp-title {
+      font-size: 12.8px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .exp-company {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .exp-duration {
+      font-size: 11.2px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    ul.bullets {
+      list-style-type: square;
+      padding-left: 16px;
+      margin-top: 3px;
+    }
+
+    ul.bullets li {
+      margin-bottom: 3.5px;
+      color: var(--muted);
+      font-size: 11.8px;
+      line-height: 1.4;
+    }
+
+    ul.bullets li strong {
+      color: var(--dark);
+    }
+
+    .repo-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .repo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .repo-name {
+      font-size: 12.2px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .repo-badge {
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      text-transform: uppercase;
+    }
+
+    .repo-desc {
+      font-size: 11.4px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .repo-bridge {
+      font-size: 11px;
+      background: var(--light-bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      border-left: 3px solid var(--accent);
+      color: var(--dark);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+        font-size: 10.5pt;
+      }
+      .action-bar {
+        display: none;
+      }
+      .page {
+        margin: 0;
+        padding: 24pt 32pt;
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar">
+    <button class="btn-download" onclick="window.print()">Download / Print as PDF</button>
+  </div>
+
+  <!-- PAGE 1: RESUME & CORE EXPERIENCES -->
+  <div class="page">
+    <header>
+      <h1>Sunny Uday Kiran Janipalli</h1>
+      <div class="headline">Lead Technical Product Manager | Enterprise Cloud Catalogs & Agile Delivery Lead</div>
+      <div class="contact-bar">
+        <span>📍 Bengaluru / Hyderabad, India</span>
+        <span>📞 +91-7036023134</span>
+        <span>✉️ sunny.udaykiran@gmail.com</span>
+        <span>🔗 linkedin.com/in/sunny-uday-kiran</span>
+        <span>💻 github.com/aiwithsunnyuk</span>
+      </div>
+    </header>
+
+    <h2>Executive Summary</h2>
+    <p>
+To link your best CV to the **Download Resume** button in your new layout, follow these steps:
+
+### 1. File Placement & Recommended Naming
+Save your latest PDF in your project's static/assets directory (usually `assets/`, `docs/`, or the root public folder). 
+
+Use a clean, professional filename that includes your name and role rather than generic names like `resume.pdf`:
+```text
+assets/Sunny_Janipalli_Technical_Product_Manager_CV.pdf
